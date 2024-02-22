@@ -48,7 +48,22 @@ def sortCards():
                 sorted[i][j] = deck[index]
                 picked.append(deck[index])
 
-# def moveCard(card_index, column_index):
+def moveCard(from_column, to_column):
+    for i in range(6, 0):
+        if(turned[i][from_column] != 0):
+            last_card = sorted[i][from_column]
+            turned[i][from_column] = 0
+
+            if(turned[i - 1][from_column] != 2):
+                 turned[i - 1][from_column] = 2
+
+    for i in range(0, 6):
+          if(turned[i][to_column] == 0):
+               if(sorted[i][to_column][2] == sorted[i][from_column][2] + 1 and sorted[i][to_column][1] != sorted[i][from_column][1]):
+                turned[i][to_column] = last_card
+
+    
+          
      
 
 
